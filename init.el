@@ -22,6 +22,7 @@
 		      magit
 		      cider
                       key-chord-mode
+                      org
 		      ac-cider
 		      ))
 
