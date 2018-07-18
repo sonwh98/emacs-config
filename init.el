@@ -21,7 +21,7 @@
 		      aggressive-indent
 		      magit
 		      cider
-                      key-chord-mode
+                      key-chord
                       org
 		      ac-cider
 		      ))
