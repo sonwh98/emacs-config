@@ -60,17 +60,6 @@
 
 (setq web-mode-enable-current-element-highlight t)
 
-;;tmux key mapping for paredit for remote ssh
-(define-key input-decode-map "\e[1;5A" [C-up])
-(define-key input-decode-map "\e[1;5B" [C-down])
-(define-key input-decode-map "\e[1;5C" [C-right])
-(define-key input-decode-map "\e[1;5D" [C-left])
-
-;;tmux key mapping for paredit for localhost. why are they different?
-(global-set-key (kbd "M-[ A") [C-up])
-(global-set-key (kbd "M-[ B") [C-down])
-(global-set-key (kbd "M-[ C") [C-right])
-(global-set-key (kbd "M-[ D") [C-left])
 
 ;;doremi suggested keybindings https://www.emacswiki.org/emacs/doremi-cmd.el
 (defalias 'doremi-prefix (make-sparse-keymap))
@@ -87,7 +76,6 @@
 ;;https://github.com/clojure-emacs/cider/issues/2284
 (setq cljr-inject-dependencies-at-jack-in nil)
 (load-theme 'wheatgrass t)
-
 
 (global-hl-line-mode 1)
 
