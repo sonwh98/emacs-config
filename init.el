@@ -21,6 +21,7 @@
 		      aggressive-indent
 		      magit
 		      cider
+                      key-cord-mode
 		      ac-cider
 		      ))
 
