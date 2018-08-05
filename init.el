@@ -44,7 +44,7 @@
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'auto-complete-mode)
 (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
-
+(add-hook 'clojure-mode-hook #'projectile-mode)
 
 (setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' ")
 
