@@ -77,7 +77,7 @@
 
 ;;https://github.com/clojure-emacs/cider/issues/2284
 (setq cljr-inject-dependencies-at-jack-in nil)
-(load-theme 'wheatgrass t)
+(load-theme 'leuven t)
 
 (global-hl-line-mode 1)
 
