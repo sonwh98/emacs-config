@@ -18,6 +18,7 @@
 		      clojure-mode
 		      paredit
 		      web-mode
+                      markdown-mode
 		      aggressive-indent
 		      magit
 		      cider
