@@ -81,6 +81,8 @@
 (load-theme 'leuven t)
 
 (global-hl-line-mode 1)
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
