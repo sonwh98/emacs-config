@@ -25,7 +25,7 @@
                       key-chord
                       org
 		      ac-cider
-		      ))
+                      geiser))
 
 (unless (package-installed-p 'ac-cider)
   (package-list-packages))
@@ -44,10 +44,10 @@
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'auto-complete-mode)
-(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
+;;(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'clojure-mode-hook #'projectile-mode)
 
-(setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' ")
+(setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' -not -iwholename '*/cljs-out/*'  ")
 
 (eval-after-load 'web-mode
   '(progn
@@ -78,9 +78,9 @@
 
 ;;https://github.com/clojure-emacs/cider/issues/2284
 (setq cljr-inject-dependencies-at-jack-in nil)
-(load-theme 'leuven t)
+(load-theme 'misterioso t)
 
-(global-hl-line-mode 1)
+;;(global-hl-line-mode 1)
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
 
@@ -98,3 +98,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(setq frame-title-format nil)
+
+(autoload 'gerbil-mode "gerbil" "Gerbil editing mode." t)
