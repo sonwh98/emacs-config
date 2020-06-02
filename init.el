@@ -25,7 +25,8 @@
                       key-chord
                       org
 		      ac-cider
-                      geiser))
+                      geiser
+                      zenburn-theme))
 
 (unless (package-installed-p 'ac-cider)
   (package-list-packages))
@@ -78,7 +79,7 @@
 
 ;;https://github.com/clojure-emacs/cider/issues/2284
 (setq cljr-inject-dependencies-at-jack-in nil)
-(load-theme 'misterioso t)
+(load-theme 'zenburn t)
 
 ;;(global-hl-line-mode 1)
 (projectile-mode +1)
