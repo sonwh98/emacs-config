@@ -26,8 +26,7 @@
                       org
 		      ac-cider
                       geiser
-                      zenburn-theme
-                      spiral))
+                      zenburn-theme))
 
 (unless (package-installed-p 'ac-cider)
   (package-list-packages))
