@@ -2,7 +2,10 @@
 
 ;;instructions at setting up a clojure/clojurescript development environment at http://lambdakids.stigmergy.systems/2018/6/6/hello-world.blog
 
-(add-to-list 'package-archives (cons "melpa"  "https://melpa.org/packages/") t)
+;;(add-to-list 'package-archives (cons "melpa"  "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;;download doremi at https://www.emacswiki.org/emacs/DoReMi 
