@@ -101,6 +101,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-(setq frame-title-format nil)
-
 (autoload 'gerbil-mode "gerbil" "Gerbil editing mode." t)
+
+(setq frame-title-format nil)
+(setq ffip-prefer-ido-mode t)
