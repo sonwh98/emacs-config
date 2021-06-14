@@ -28,7 +28,7 @@
                       key-chord
                       org
 		      ac-cider
-                      geiser
+                      geiser-gambit
                       zenburn-theme))
 
 (unless (package-installed-p 'ac-cider)
