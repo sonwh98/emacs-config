@@ -1,5 +1,8 @@
 (require 'package) ;; You might already have this line
 
+;;https://emacs.stackexchange.com/questions/61997/how-do-i-fix-incomprehensible-buffer-error-when-running-list-packages?newreg=1258b79c62fa449eaab41c1bd5bb9ce4
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;;instructions at setting up a clojure/clojurescript development environment at http://lambdakids.stigmergy.systems/2018/6/6/hello-world.blog
 
 ;;(add-to-list 'package-archives (cons "melpa"  "https://melpa.org/packages/") t)
