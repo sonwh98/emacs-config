@@ -32,6 +32,7 @@
                       org
 		      ac-cider
                       geiser-gambit
+		      tide
                       zenburn-theme))
 
 (unless (package-installed-p 'ac-cider)
@@ -54,7 +55,7 @@
 ;;(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'clojure-mode-hook #'projectile-mode)
 
-(setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' -not -iwholename '*/cljs-out/*'  ")
+(setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' -not -iwholename '*/cljs-out/*' -not -iwholename '*/.shadow-cljs/*' ")
 
 (eval-after-load 'web-mode
   '(progn
@@ -110,3 +111,24 @@
 
 (setq frame-title-format nil)
 (setq ffip-prefer-ido-mode t)
+
+;;;typescript
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
+
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
+
+;; formats the buffer before saving
+(add-hook 'before-save-hook 'tide-format-before-save)
+
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
