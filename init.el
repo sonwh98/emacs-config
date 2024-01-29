@@ -18,8 +18,7 @@
 
 (package-initialize)
 
-(defvar my-packages '(better-defaults
-		      projectile
+(defvar my-packages '(projectile
                       find-file-in-project
 		      clojure-mode
 		      paredit
