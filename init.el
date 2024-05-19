@@ -34,7 +34,10 @@
 		      ac-cider
                       geiser-gambit
 		      tide
-                      zenburn-theme))
+                      zenburn-theme
+		      flycheck-clojure
+		      flycheck-projectile
+		      flycheck-pycheckers))
 
 (unless (package-installed-p 'ac-cider)
   (package-list-packages))
