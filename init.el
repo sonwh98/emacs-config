@@ -19,29 +19,22 @@
 (package-initialize)
 
 (defvar my-packages '(projectile
-                      find-file-in-project
 		      clojure-mode
-		      python-mode
 		      blacken
 		      elpy
 		      paredit
 		      web-mode
                       markdown-mode
-		      aggressive-indent
 		      magit
 		      cider
                       key-chord
                       org
-		      ac-cider
                       geiser-gambit
-		      tide
                       zenburn-theme
 		      flycheck-clojure
 		      flycheck-projectile
 		      flycheck-pycheckers))
 
-(unless (package-installed-p 'ac-cider)
-  (package-list-packages))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -57,14 +50,7 @@
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'clojure-mode-hook #'auto-complete-mode)
-;;(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'clojure-mode-hook #'projectile-mode)
-(add-hook 'python-mode-hook 'flycheck-mode)
-(add-hook 'python-mode-hook 'blacken-mode)
-(add-hook 'python-mode-hook 'pyenv-mode)
-
-
-(setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' -not -iwholename '*/cljs-out/*' -not -iwholename '*/.shadow-cljs/*' ")
 
 (eval-after-load 'web-mode
   '(progn
@@ -76,7 +62,6 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.chp\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.blog\\'" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-hook 'web-mode-hook #'tagedit-mode)
 
 (setq web-mode-enable-current-element-highlight t)
@@ -100,7 +85,7 @@
 
 ;;(global-hl-line-mode 1)
 (projectile-mode +1)
-(define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -109,7 +94,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (ac-cider cider magit aggressive-indent web-mode paredit clojure-mode find-file-in-project projectile better-defaults))))
+    (cider magit web-mode paredit clojure-mode projectile better-defaults))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -120,25 +105,14 @@
 (autoload 'gerbil-mode "gerbil" "Gerbil editing mode." t)
 
 (setq frame-title-format nil)
-(setq ffip-prefer-ido-mode t)
-
-;;;typescript
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
+(ido-mode t)
+(ido-everywhere t)
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil) ; Disable ido faces to see flx highlights.
 
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(elpy-enable)
+(setq elpy-rpc-python-command "python3")
