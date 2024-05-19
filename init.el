@@ -21,6 +21,7 @@
 (defvar my-packages '(projectile
                       find-file-in-project
 		      clojure-mode
+		      python-mode
 		      paredit
 		      web-mode
                       markdown-mode
@@ -54,6 +55,7 @@
 ;;(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'clojure-mode-hook #'projectile-mode)
 
+
 (setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' -not -iwholename '*/cljs-out/*' -not -iwholename '*/.shadow-cljs/*' ")
 
 (eval-after-load 'web-mode
@@ -66,6 +68,7 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.chp\\'" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.blog\\'" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-hook 'web-mode-hook #'tagedit-mode)
 
 (setq web-mode-enable-current-element-highlight t)
