@@ -22,6 +22,7 @@
                       find-file-in-project
 		      clojure-mode
 		      python-mode
+		      elpy
 		      paredit
 		      web-mode
                       markdown-mode
@@ -54,6 +55,9 @@
 (add-hook 'clojure-mode-hook #'auto-complete-mode)
 ;;(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'clojure-mode-hook #'projectile-mode)
+(add-hook 'python-mode-hook 'flycheck-mode)
+(add-hook 'python-mode-hook 'blacken-mode)
+(add-hook 'python-mode-hook 'pyenv-mode)
 
 
 (setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' -not -iwholename '*/cljs-out/*' -not -iwholename '*/.shadow-cljs/*' ")
