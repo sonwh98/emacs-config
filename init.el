@@ -22,6 +22,7 @@
                       find-file-in-project
 		      clojure-mode
 		      python-mode
+		      blacken
 		      elpy
 		      paredit
 		      web-mode
