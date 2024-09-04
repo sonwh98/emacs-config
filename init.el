@@ -18,8 +18,7 @@
 
 (package-initialize)
 
-(defvar my-packages '(better-defaults
-		      projectile
+(defvar my-packages '(projectile
                       find-file-in-project
 		      clojure-mode
 		      paredit
@@ -30,13 +29,10 @@
 		      cider
                       key-chord
                       org
-		      ac-cider
                       geiser-gambit
 		      tide
                       zenburn-theme))
 
-(unless (package-installed-p 'ac-cider)
-  (package-list-packages))
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -51,7 +47,7 @@
 (defvar tramp-ssh-controlmaster-options nil)
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
-(add-hook 'clojure-mode-hook #'auto-complete-mode)
+;;(add-hook 'clojure-mode-hook #'auto-complete-mode)
 ;;(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'clojure-mode-hook #'projectile-mode)
 
