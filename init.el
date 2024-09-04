@@ -15,24 +15,17 @@
 (load "doremi.el")
 (load "doremi-cmd.el")
 
-
 (package-initialize)
 
 (defvar my-packages '(projectile
-                      find-file-in-project
 		      clojure-mode
 		      paredit
 		      web-mode
                       markdown-mode
-		      aggressive-indent
 		      magit
 		      cider
-                      key-chord
                       org
-                      geiser-gambit
-		      tide
                       zenburn-theme))
-
 
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -50,8 +43,6 @@
 ;;(add-hook 'clojure-mode-hook #'auto-complete-mode)
 ;;(add-hook 'clojure-mode-hook #'aggressive-indent-mode)
 (add-hook 'clojure-mode-hook #'projectile-mode)
-
-(setq ffip-find-options "-not -iwholename '*/target/*' -not -iwholename '*/compiled/*' -not -iwholename '*/generated/*' -not -iwholename '*/cljs-out/*' -not -iwholename '*/.shadow-cljs/*' ")
 
 (eval-after-load 'web-mode
   '(progn
@@ -87,44 +78,3 @@
 ;;(global-hl-line-mode 1)
 (projectile-mode +1)
 (define-key projectile-mode-map (kbd "C-c C-p") 'projectile-command-map)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (ac-cider cider magit aggressive-indent web-mode paredit clojure-mode find-file-in-project projectile better-defaults))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-(autoload 'gerbil-mode "gerbil" "Gerbil editing mode." t)
-
-(setq frame-title-format nil)
-(setq ffip-prefer-ido-mode t)
-
-;;;typescript
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
-
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
